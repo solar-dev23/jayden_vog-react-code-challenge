@@ -11,3 +11,7 @@ export const createPost = (post) => {
 export const updatePost = (post) => {
   return { type: types.UPDATE_POST, post };
 };
+
+export const deletePost = (postId) => {
+  return { type: types.DELETE_POST, postId };
+};

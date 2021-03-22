@@ -20,9 +20,9 @@ function* createPost(action) {
 
 function* updatePost(action) {
   try {
-    const { post, id } = action;
+    const { post } = action;
     const data = yield axios
-      .patch(`${POST_ENDPOINT}/${id}`, post)
+      .patch(`${POST_ENDPOINT}/${post.id}`, post)
       .then((response) => response.data);
     yield put({
       type: types.UPDATE_POST_SUCCESS,
@@ -45,10 +45,23 @@ function* fetchPosts(action) {
   }
 }
 
+function* deletePost(action) {
+  try {
+    const { postId } = action;
+    yield axios
+      .delete(`${POST_ENDPOINT}/${postId}`)
+      .then((response) => response.data);
+    yield put({ type: types.DELETE_POST_SUCCESS, data: "Success" });
+  } catch (error) {
+    yield put({ type: types.DELETE_POST_FAILED, error });
+  }
+}
+
 export function* postSaga() {
   yield all([
     takeLatest(types.GET_POST_LIST, fetchPosts),
     takeLatest(types.CREATE_POST, createPost),
     takeLatest(types.UPDATE_POST, updatePost),
+    takeLatest(types.DELETE_POST, deletePost),
   ]);
 }
