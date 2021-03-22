@@ -39,11 +39,11 @@ const Header = () => {
             Home
           </NavLink>
           <NavLink
-            to="/university"
+            to="/universities"
             className={classes.menu}
             activeClassName={classes.activeMenu}
           >
-            University
+            Universities
           </NavLink>
           <NavLink
             to="/postal-lookup"
