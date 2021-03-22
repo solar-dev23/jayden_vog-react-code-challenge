@@ -6,7 +6,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
-const Alert = ({ open, onClose, onSubmit, content }) => {
+const Alert = ({ open, onClose, onSubmit, children }) => {
   const handleClose = () => {
     onClose(false);
   };
@@ -17,16 +17,11 @@ const Alert = ({ open, onClose, onSubmit, content }) => {
 
   return (
     <div>
-      <Dialog
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
+      <Dialog open={open} onClose={handleClose}>
         <DialogTitle id="alert-dialog-title">Alert!</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            {content.text}
+            {children}
           </DialogContentText>
         </DialogContent>
         <DialogActions>

@@ -1,11 +1,10 @@
 import { Route, Redirect } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 
-import "./App.scss";
 import Header from "./components/Header";
-import Home from "./components/Home";
-import Universities from "./components/Universities";
-import PostalLookup from "./components/PostalLookup";
+import Home from "./pages/Home";
+import Universities from "./pages/Universities";
+import PostalLookup from "./pages/PostalLookup";
 
 const App = () => {
   return (

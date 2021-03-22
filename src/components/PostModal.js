@@ -13,16 +13,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useFormik } from "formik";
 import * as yup from "yup";
 
-import * as types from "../actions/actionTypes";
+import * as types from "../store/actions/actionTypes";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   actions: {
     display: "flex",
     flexDirection: "row-reverse",
-    marginTop: 10,
+    marginTop: theme.spacing(2),
   },
   submitBtn: {
-    marginRight: 10,
+    marginRight: theme.spacing(2),
   },
 }));
 
@@ -94,7 +94,6 @@ const PostModal = ({ open, onClose, onSubmit, selected }) => {
         open={open}
         onClose={onClose}
         onSubmit={handleSubmit}
-        aria-labelledby="form-dialog-title"
         maxWidth="md"
       >
         <DialogTitle id="form-dialog-title">

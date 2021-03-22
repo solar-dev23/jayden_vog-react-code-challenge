@@ -15,12 +15,12 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import SearchIcon from "@material-ui/icons/Search";
 
-import { LOOKUP_POSTAL_CODE } from "../actions/actionTypes";
+import { LOOKUP_POSTAL_CODE } from "../store/actions/actionTypes";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    padding: 24,
+    padding: theme.spacing(3),
   },
   header: {
     display: "flex",
@@ -32,10 +32,10 @@ const useStyles = makeStyles(() => ({
     alignItems: "center",
   },
   searchLabel: {
-    marginRight: 10,
+    marginRight: theme.spacing(2),
   },
   view: {
-    marginTop: 20,
+    marginTop: theme.spacing(3),
   },
 }));
 
@@ -52,7 +52,7 @@ const PostalLookup = () => {
       type: LOOKUP_POSTAL_CODE,
       code,
     });
-  }, [code]);
+  }, [dispatch, code]);
 
   const handleLookupCode = (event) => {
     if (event.charCode === 13) {
