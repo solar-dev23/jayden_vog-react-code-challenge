@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { makeStyles } from "@material-ui/core/styles";
-import { Box, Typography, Select, MenuItem } from "@material-ui/core";
+import { Box, Typography, Select, ListItem } from "@material-ui/core";
 import { DataGrid } from "@material-ui/data-grid";
 
 import { GET_COUNTRIES, GET_UNIVERSITIES } from "../actions/actionTypes";
@@ -52,6 +52,8 @@ const Universities = () => {
   }, []);
 
   useEffect(() => {
+    if (!country || country === "") return;
+
     dispatch({
       type: GET_UNIVERSITIES,
       country,
@@ -91,9 +93,9 @@ const Universities = () => {
             {countries &&
               Object.keys(countries).length > 0 &&
               Object.keys(countries).map((key) => (
-                <MenuItem value={countries[key].country}>
+                <ListItem key={key} value={countries[key].country}>
                   {countries[key].country}
-                </MenuItem>
+                </ListItem>
               ))}
           </Select>
         </Box>
