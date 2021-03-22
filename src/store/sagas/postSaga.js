@@ -1,7 +1,7 @@
 import axios from "axios";
 import { all, put, takeLatest } from "redux-saga/effects";
 import * as types from "../actions/actionTypes";
-import { POST_ENDPOINT } from "../constants/apiEndpoints";
+import { POST_ENDPOINT } from "../../constants/apiEndpoints";
 
 function* createPost(action) {
   try {

@@ -4,7 +4,7 @@ import * as types from "../actions/actionTypes";
 import {
   UNIVERSITY_ENDPOINT,
   COUNTRY_ENDPOINT,
-} from "../constants/apiEndpoints";
+} from "../../constants/apiEndpoints";
 
 function* fetchCountries() {
   try {

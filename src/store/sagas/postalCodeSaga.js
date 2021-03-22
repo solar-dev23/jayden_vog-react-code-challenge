@@ -1,7 +1,7 @@
 import axios from "axios";
 import { put, takeLatest } from "redux-saga/effects";
 import * as types from "../actions/actionTypes";
-import { POSTAL_ENDPOINT } from "../constants/apiEndpoints";
+import { POSTAL_ENDPOINT } from "../../constants/apiEndpoints";
 
 function* lookupPostalCode(action) {
   try {

@@ -8,24 +8,24 @@ import AddIcon from "@material-ui/icons/Add";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
 
-import * as types from "../actions/actionTypes";
-import PostModal from "./PostModal";
-import Alert from "./Alert";
+import * as types from "../store/actions/actionTypes";
+import PostModal from "../components/PostModal";
+import Alert from "../components/Alert";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    padding: 24,
+    padding: theme.spacing(3),
   },
   header: {
     display: "flex",
     justifyContent: "space-between",
   },
   dataView: {
-    marginTop: 20,
+    marginTop: theme.spacing(3),
   },
   iconButton: {
-    padding: 5,
+    padding: theme.spacing(1),
   },
 }));
 
@@ -140,11 +140,9 @@ const Home = () => {
         open={isDelete}
         onClose={() => setDelete(false)}
         onSubmit={() => handleDelete()}
-        content={{
-          text: "Are you sure to delete this post?",
-          type: "delete",
-        }}
-      />
+      >
+        Are you sure to delete this post?
+      </Alert>
     </div>
   );
 };
