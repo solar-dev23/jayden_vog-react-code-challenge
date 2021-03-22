@@ -4,7 +4,7 @@ import Container from "@material-ui/core/Container";
 import "./App.scss";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import University from "./components/University";
+import Universities from "./components/Universities";
 import PostalLookup from "./components/PostalLookup";
 
 const App = () => {
@@ -13,7 +13,7 @@ const App = () => {
       <Header />
       <Container>
         <Route path="/home" exact component={Home} />
-        <Route path="/university" component={University} />
+        <Route path="/universities" component={Universities} />
         <Route path="/postal-lookup" component={PostalLookup} />
         <Redirect to="/home" />
       </Container>

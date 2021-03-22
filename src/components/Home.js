@@ -117,7 +117,7 @@ const Home = () => {
       </Box>
 
       <Box className={classes.dataView}>
-        {rows && rows.length > 0 && (
+        {rows && (
           <DataGrid
             pageSize={10}
             rowsPerPageOptions={[10, 50, 100]}
